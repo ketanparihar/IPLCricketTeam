@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% include 'MyApp/base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPL CRICKET TEAM</title>
+    <link href="{% static 'css/myfile.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <style>
+        .headline1{
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-style: italic;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+
+
+
+
+</head>
+<body>
+    <h1 class="headline1">You need to choose team to add
+     new players and click on
+         add player</h1>
+      <div class='row m-3 p-3'>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+               <a href="/chennai"> <img src="{% static 'image/chennai.jpg' %}" alt="chennai super king" style="height: 70%" width="65%"  ></a>
+               <h5 class="card-title">Chennai Super Kings</h5>
+               <a href="/chennai" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+               <a href="/mumbai" ><img src="{% static 'image/mi.jpg' %}" alt="chennai super king" style="height: 100%" width="70%" ></a>
+               <h5 class="card-title">Mumbai Indians</h5>
+               <a href="/mumbai" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+               <a href="/delhi"><img src="{% static 'image/ddd.jpg' %}" alt="chennai super king" style="height: 70%" width="65%"  ></a>
+               <h5 class="card-title">Delhi Capitals</h5>
+               <a href="/delhi" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+               <img src="{% static 'image/rcb.png' %}" alt="chennai super king" style="height: 70%" width="65%" >
+               <h5 class="card-title">Royal Challengers Bangalores</h5>
+
+               <a href="/bangalore" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='row m-3 p-3'>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+                <a href="/kolkata" > <img src="{% static 'image/kolkata.jpg' %}" alt="chennai super king" style="height: 70%" width="65%" ></a>
+               <h5 class="card-title">Kolkata Knight Riders</h5>
+               <a href="/kolkata" class="btn btn-primary">DETAIL</a>
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+                <a href="/punjab" > <img src="{% static 'image/punjab.jpg' %}" alt="chennai super king" style="height: 70%" width="65%" ></a>
+               <h5 class="card-title">Punjab Kings</h5>
+               <a href="/punjab" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+                <a href="/rajasthan" > <img src="{% static 'image/rr.jpg' %}" alt="chennai super king" style="height: 70%" width="65%"  ></a>
+               <h5 class="card-title">Rajasthan Royals</h5>
+               <a href="/rajasthan" class="btn btn-primary">DETAIL</a>
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card" >
+            <a class="card-body" >
+                <a href="/hyderabad"> <img src="{% static 'image/srh.jpg' %}" alt="chennai super king" style="height: 70%" width="65%" ></a>
+               <h5 class="card-title">Sunrisers Hyderabad</h5>
+               <a href="/hyderabad" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+        </div> 
+      </div>
+
+<div class="container">
+<div class="row">
+    {% for player in playerlist  %}
+    <div class="col-sm-3" >
+        <div class="card shadow p-2 mb-4" style="background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);">
+          <img class="card-img-top" src="{% static 'image/dhoni.png'%}" alt="Card image" style="border-radius: 50%">
+          <div class="card-body">
+               <p class="card-text">TEAM : {{ player.TeamImage }}</p>
+               <p class="card-text">TEAM : {{ player.Team_name }}}</p>
+             <p class="card-text">TEAM : {{ player.HeadLine }}</p>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+</body>
+</html>

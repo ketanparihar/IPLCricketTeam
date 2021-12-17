@@ -1,0 +1,127 @@
+{% include 'MyApp/base.html' %}
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            height: 300px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .img1 {
+            border-radius: 50%;
+            height: 50%;
+        }
+
+        button {
+            margin: 1%;
+            padding: 5%;
+        }
+
+        .table-box{
+            margin: 50px auto;
+        }
+
+        .table-row{
+
+            display: table;
+            width: 80%;
+            margin: 10px auto;
+            font-family: sans-serif;
+            background: transparent;
+            padding: 10px 0;
+            color: #555;
+            font-size: 13px;
+            box-shadow: 0 1px 4px 0 rgba(0,0,50,0.3);
+        }
+        .table-cell{
+            display: table-cell;
+            width: 20%;
+            text-align: center;
+            padding: 4px 0;
+            border-right: 1px solid #d6d4d4;
+        }
+        .table-head{
+            background-color: #8665f7;
+            box-shadow: none;
+            color: #fff;
+            font-weight: 600;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container" align="center">
+      <form  method="POST">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="AddNewTeam">
+      </form>
+    </div>
+
+    <div class="table-box">
+        <div class="table-row table-head">
+
+            <div class="table-cell">
+                <p>image</p>
+            </div>
+            <div class="table-cell">
+                <p>Team</p>
+            </div>
+            <div class="table-cell">
+                <p>headline</p>
+            </div>
+        </div>
+        {% for player in playerlist  %}
+        <div class="table-row">
+            <div class="table-cell">
+               <img src="{{ player.TeamImage }}">
+            </div>
+            <div class="table-cell">
+                <p>{{ player.Team_name }}</p>
+            </div>
+            <div class="table-cell">
+                <p>{{ player.HeadLine }}</p>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+
+
+<div class="container">
+<div class="row">
+    {% for player in playerlist  %}
+    <div class="col-sm-3" >
+        <div class="card shadow p-2 mb-4" style="background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);">
+          <img class="card-img-top" src="{% static 'image/dhoni.png'%}" alt="Card image" style="border-radius: 50%">
+          <div class="card-body">
+               <p class="card-text">TEAM : {{ player.TeamImage }}</p>
+               <p class="card-text">TEAM : {{ player.Team_name }}}</p>
+             <p class="card-text">TEAM : {{ player.HeadLine }}</p>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+</body>
+</html>

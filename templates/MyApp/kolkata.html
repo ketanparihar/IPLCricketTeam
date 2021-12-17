@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+{% include 'MyApp/base.html' %}
+{% load static %}
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            height: 300px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .img1 {
+            border-radius: 50%;
+            height: 50%;
+        }
+
+        button {
+            margin: 1%;
+            padding: 5%;
+        }
+
+        .table-box{
+            margin: 50px auto;
+        }
+
+        .table-row{
+
+            display: table;
+            width: 80%;
+            margin: 10px auto;
+            font-family: sans-serif;
+            background: transparent;
+            padding: 10px 0;
+            color: #555;
+            font-size: 13px;
+            box-shadow: 0 1px 4px 0 rgba(0,0,50,0.3);
+        }
+        .table-cell{
+            display: table-cell;
+            width: 20%;
+            text-align: center;
+            padding: 4px 0;
+            border-right: 1px solid #d6d4d4;
+        }
+        .table-head{
+            background-color: #8665f7;
+            box-shadow: none;
+            color: #fff;
+            font-weight: 600;
+
+
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="cointner" style="margin: 20px">
+
+    <div class="row">
+        <div class="column" style="background-color: ffffff;">
+            <img class="img1" src="{% static 'image/kolkata.jpg'%}" style="width: 100pxs;">
+            <h2>kolkata knight riders</h2>
+
+        </div>
+        <div class="column">
+            <h2>TotalPlayers : 15</h2>
+            <h2>Top Bastman :  (R)(C) </h2>
+            <h2>Top bowler : l (R)</h2>
+            <button style="border-radius: 50%;"><img src="{% static 'image/ico-trophy.png'%}">NOT YET</button>
+        </div>
+        <div class="column">
+            <img src="{%static 'image/kolkata.jpg' %}" alt="RCB" style="height: 40%;">
+        </div>
+    </div>
+</div>
+    <div class="container">
+      <form  method="POST" align = center>
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="AddNewPlayers">
+      </form>
+    </div>
+
+    <div class="table-box">
+        <div class="table-row table-head">
+            <div class="table-cell ">
+                <p>player Name</p>
+            </div>
+            <div class="table-cell">
+                <p>Role</p>
+            </div>
+            <div class="table-cell">
+                <p>price</p>
+            </div>
+            <div class="table-cell">
+                <p>status</p>
+            </div>
+            <div class="table-cell">
+                <p>Team</p>
+            </div>
+        </div>
+        {% for player in playerlist  %}
+        <div class="table-row">
+            <div class="table-cell">
+                <p>{{ player.player_name }}</p>
+            </div>
+            <div class="table-cell">
+                <p>{{ player.role }}</p>
+            </div>
+            <div class="table-cell">
+                <p>{{ player.price }}</p>
+            </div>
+            <div class="table-cell">
+                <p>{{ player.status }}</p>
+            </div>
+            <div class="table-cell">
+                <p>{{ player.team }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% for player in playerlist  %}
+<div class="container">
+<div class="row">
+    <div class="col-sm-4" >
+        <div class="card shadow p-4 mb-4 bg-white" style="border: none">
+          <img class="card-img-top" src="{% static 'image/dhoni.png'%}" alt="Card image" style="border-radius: 50%">
+          <div class="card-body">
+            <h4 class="card-title text-center">{{ player.player_name }}</h4>
+            <p class="card-text">ROLE : {{ player.role }}s</p>
+             <p class="card-text">PRICE : {{ player.price }}s</p>
+             <p class="card-text">PLAYING STATUS : {{ player.status }}s</p>
+             <p class="card-text">TEAM : {{ player.team }}</p>
+
+          </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endfor %}
+</body>
+</html>

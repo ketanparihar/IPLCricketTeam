@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% include 'MyApp/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+</head>
+<body>
+{% if searched %}
+<h1 align="center">you are searching for {{ searched }}</h1>
+    {% for team in teams %}
+        {{ team }}
+    {% endfor %}
+{% else %}
+<h1>you forget to search</h1>
+{% endif %}
+</body>
+</html>

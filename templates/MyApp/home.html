@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPL Team 2021</title>
+    <link href="{% static 'css/myfile.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</head>
+<style>
+   
+    .carousel-inner img {
+      width: 100%;
+      height: 100%;
+    }
+    </style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">IPL TEAMS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="/addteam">Add TEAM</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/detail">Add Players</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'Search-Team' %}">
+              {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searched">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+    </nav>
+
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'image/1636696779_ELIPL_28.webp' %}" alt="Los Angeles" width="800" height="200">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'image/home.jpg' %}" alt="Chicago" width="800" height="200">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'image/home2.jpg' %}" alt="New York" width="800" height="200">
+          </div>
+        </div>
+        
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+
+      <div class='row m-3 p-3'>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+               <a href="/chennai"> <img src="{% static 'image/chennai.jpg' %}" alt="chennai super king" style="height: 70%" width="65%"  ></a>
+               <h5 class="card-title">Chennai Super Kings</h5>
+               <a href="/chennai" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+               <a href="/mumbai" ><img src="{% static 'image/mi.jpg' %}" alt="chennai super king" style="height: 100%" width="70%" ></a>
+               <h5 class="card-title">Mumbai Indians</h5>
+               <a href="/mumbai" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+               <a href="/delhi"><img src="{% static 'image/ddd.jpg' %}" alt="chennai super king" style="height: 70%" width="65%"  ></a>
+               <h5 class="card-title">Delhi Capitals</h5>
+               <a href="/delhi" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div> 
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+               <img src="{% static 'image/rcb.png' %}" alt="chennai super king" style="height: 70%" width="65%" >
+               <h5 class="card-title">Royal Challengers Bangalores</h5>
+
+               <a href="/bangalore" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div> 
+      </div>
+
+      <div class='row m-3 p-3'>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+                <a href="/kolkata" > <img src="{% static 'image/kolkata.jpg' %}" alt="chennai super king" style="height: 70%" width="65%" ></a>
+               <h5 class="card-title">Kolkata Knight Riders</h5>
+               <a href="/kolkata" class="btn btn-primary">DETAIL</a>
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+                <a href="/punjab" > <img src="{% static 'image/punjab.jpg' %}" alt="chennai super king" style="height: 70%" width="65%" ></a>
+               <h5 class="card-title">Punjab Kings</h5>
+               <a href="/punjab" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+                <a href="/rajasthan" > <img src="{% static 'image/rr.jpg' %}" alt="chennai super king" style="height: 70%" width="65%"  ></a>
+               <h5 class="card-title">Rajasthan Royals</h5>
+               <a href="/rajasthan" class="btn btn-primary">DETAIL</a>
+              </div>
+          </div>
+        </div> 
+        <div class="col-sm-3">
+          <div class="card" >
+            <a class="card-body" >
+                <a href="/hyderabad"> <img src="{% static 'image/srh.jpg' %}" alt="chennai super king" style="height: 70%" width="65%" ></a>
+               <h5 class="card-title">Sunrisers Hyderabad</h5>
+               <a href="/hyderabad" class="btn btn-primary">Details</a>
+              </div>
+          </div>
+        </div> 
+      </div>
+       {% for player in playerlist  %}
+           <div class="container">
+<div class="row">
+    <div class="col-sm-4" >
+        <div class="card shadow p-2 mb-4" style="background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);">
+          <img class="card-img-top" src="{% static 'image/dhoni.png'%}" alt="Card image" style="border-radius: 50%">
+          <div class="card-body">
+            <h4 class="card-title text-center">{{ player.player_name }}</h4>
+            <p class="card-text">ROLE : {{ player.role }}s</p>
+             <p class="card-text">PRICE : {{ player.price }}s</p>
+          </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endfor %}
+
+<div class="container">
+<div class="row">
+    {% for player in playerlist  %}
+    <div class="col-sm-3" >
+        <div class="card shadow p-2 mb-4" style="background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);">
+          <img class="card-img-top" src="{% static 'image/dhoni.png'%}" alt="Card image" style="border-radius: 50%">
+          <div class="card-body">
+               <p class="card-text">TEAM : {{ player.TeamImage }}</p>
+               <p class="card-text">TEAM : {{ player.Team_name }}}</p>
+             <p class="card-text">TEAM : {{ player.HeadLine }}</p>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+
+</body>
+</html>
